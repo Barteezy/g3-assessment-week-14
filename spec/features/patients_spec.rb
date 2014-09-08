@@ -9,6 +9,8 @@ feature "Patients" do
     login(user)
 
     expect(page).to have_content(patient.first_name, patient.last_name)
+
+    click_on
   end
 
 end

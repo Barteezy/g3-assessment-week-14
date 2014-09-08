@@ -1,0 +1,9 @@
+<h1>Add a subcription to <%= @patient.first_name %> <%= @patient.last_name %></h1>
+
+<%= form_for [@patient, @prescription] do |f| %>
+
+
+<%= f.label :medication%>
+<%= f.select :medication, [["Advil"],["Cough Syrup"],["Ibuprofen"]] %>
+
+<%end%>
