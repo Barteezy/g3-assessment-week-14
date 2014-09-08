@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140908154629) do
+ActiveRecord::Schema.define(version: 20140908162458) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,9 +29,11 @@ ActiveRecord::Schema.define(version: 20140908154629) do
 
   create_table "prescriptions", force: true do |t|
     t.string  "medication"
-    t.string  "dosage_schedule"
-    t.string  "dates"
     t.integer "patient_id"
+    t.string  "schedule"
+    t.string  "dosage"
+    t.date    "starts"
+    t.date    "ends"
   end
 
   create_table "users", force: true do |t|

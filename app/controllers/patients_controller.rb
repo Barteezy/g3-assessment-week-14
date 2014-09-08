@@ -5,4 +5,6 @@ class PatientsController < ApplicationController
     @patient = Patient.find(params[:id])
   end
 
+
+
 end

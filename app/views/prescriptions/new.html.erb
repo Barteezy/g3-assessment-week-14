@@ -3,7 +3,27 @@
 <%= form_for [@patient, @prescription] do |f| %>
 
 
-<%= f.label :medication%>
-<%= f.select :medication, [["Advil"],["Cough Syrup"],["Ibuprofen"]] %>
+    <%= f.label :medication %>
+    <%= f.select :medication, [["Advil"], ["Cough Syrup"], ["Ibuprofen"]] %>
+    <br>
+    <%= f.label :dosage %>
+    <%= f.text_field :dosage %>
+    <br>
+    <%= f.label :schedule %>
+    <%= f.text_field :schedule %>
+    <br>
+    <%= f.label :starts %>
+    <%= f.text_field :starts, placeholder: "YYYY-MM-DD"%>
+    <br>
+    <%= f.label :ends %>
+    <%= f.text_field :ends, placeholder: "YYYY-MM-DD"%>
+    <%= f.hidden_field :patient_id, placeholder: @patient.id%>
+    <br>
+    <%= f.submit "Create Prescription" %>
 
-<%end%>
+
+
+
+
+
+<% end %>

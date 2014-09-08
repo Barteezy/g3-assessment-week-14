@@ -10,7 +10,14 @@
   <th>Dosage/Schedule</th>
   <th>Dates</th>
   </thead>
-  <tbody>
+  <tbody >
+  <% @patient.prescriptions.each do |pscrip| %>
+  <tr>
+  <td><%= pscrip.medication %></td>
+      <td><%= pscrip.dosage %>/<%= pscrip.schedule %></td>
+      <td><%= pscrip.starts %>/<%= pscrip.ends %></td>
+      </tr>
+  <%end%>
 
   </tbody>
 </table>
