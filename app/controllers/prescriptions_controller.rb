@@ -16,8 +16,13 @@ class PrescriptionsController < ApplicationController
     @prescription.ends = params[:prescription][:ends]
     @prescription.starts = params[:prescription][:starts]
     @prescription.patient_id = @patient.id
-    @prescription.save!
-    redirect_to patient_path(@patient)
+    if @prescription.save
+      redirect_to patient_path(@patient)
+    else
+      @prescription = Prescription.new
+      @prescription.valid?
+      render :new
+    end
 
   end
 

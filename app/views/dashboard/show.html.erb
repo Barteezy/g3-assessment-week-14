@@ -1,0 +1,7 @@
+<h2>Patients who've been prescribed: <%= @medication.name %></h2>
+
+<ul>
+  <% @medication.patient.each do |patient| %>
+  <li><%= @medication.patient %></li>
+      <% end %>
+</ul>

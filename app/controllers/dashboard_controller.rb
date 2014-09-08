@@ -4,4 +4,8 @@ class DashboardController < ApplicationController
     @medications = Medication.order(:name)
   end
 
+  def show
+    @medications = Medication.order(:name)
+  end
+
 end
