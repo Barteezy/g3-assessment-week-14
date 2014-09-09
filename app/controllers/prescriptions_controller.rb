@@ -19,8 +19,6 @@ class PrescriptionsController < ApplicationController
     if @prescription.save
       redirect_to patient_path(@patient)
     else
-      @prescription = Prescription.new
-      @prescription.valid?
       render :new
     end
 
