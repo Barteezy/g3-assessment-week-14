@@ -5,7 +5,10 @@ class DashboardController < ApplicationController
   end
 
   def show
-    @medications = Medication.order(:name)
+    p params
+    @medications = Medication.find(params["format"])
+    @prescription = Prescription.find_by(medication: @medications.name)
+    @patients = Patient.all
   end
 
 end

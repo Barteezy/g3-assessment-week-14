@@ -1,6 +1,7 @@
 <h1>Add a subcription to <%= @patient.first_name %> <%= @patient.last_name %></h1>
 
 <%= form_for [@patient, @prescription] do |f| %>
+
     <% if @prescription.errors.any? %>
         <% @prescription.errors.full_messages.each do |message| %>
             <p class="errors"><%= message %><p>

@@ -1,7 +1,23 @@
-<h2>Patients who've been prescribed: <%= @medication.name %></h2>
+<h2>Patients who've been prescribed: <%= @medications.name %></h2>
 
-<ul>
-  <% @medication.patient.each do |patient| %>
-  <li><%= @medication.patient %></li>
-      <% end %>
-</ul>
+<table class="table">
+  <thead>
+  <th>Patient</th>
+  <th>Medication</th>
+  <th>Dosage/Schedule</th>
+  <th>Dates</th>
+  </thead>
+<% @patients.each do |patient| %>
+
+      <% patient.prescriptions.where(medication: @medications.name).each do |pscrip| %>
+          <tr>
+            <td>
+              <%= patient.first_name if patient.prescriptions.where(medication: @medications.name).any? %>
+              <%= patient.last_name if patient.prescriptions.where(medication: @medications.name).any? %>
+            </td>
+            <td><%= pscrip.medication %></td>
+            <td><%= pscrip.dosage %>/<%= pscrip.schedule %></td>
+            <td><%= pscrip.starts %>/<%= pscrip.ends %></td>
+          </tr>
+      <% end %>  <% end %>
+    </table>
